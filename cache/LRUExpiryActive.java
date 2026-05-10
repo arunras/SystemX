@@ -2,10 +2,10 @@ import java.util.concurrent.Exectutors;
 import java.util.concurrent.ScheduleExectutorService;
 import java.util.concurrent.TimeUnit;
 
-public class LRUActiveExpiry<K, V> extends LRUExpiry<K, V> {
+public class LRUExpiryActive<K, V> extends LRUExpiry<K, V> {
   private final ScheduleExectutorService scheduler = Exectutors.newScheduledThreadPool(1);
 
-  public LRUActiveExpiry(int capacity, long cleanupInterval) {
+  public LRUExpiryActive(int capacity, long cleanupInterval) {
     super(capacity);
 
     // Schedule a recurring task scan and purge expired items
