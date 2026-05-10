@@ -5,19 +5,7 @@ public class LRU<K, V> {
   private final int capacity;
   private final Map<K, V> map;
   private final Node<K, V> head, tail;
-
-  private static class Node<K, V> {
-    K key;
-    V value;
-    Node<K, V> next;
-    Node<K, V> prev;
-
-    Node(K key, V value) {
-      this.key = key;
-      this.value = value;
-    }
-  }
-
+  
   public LRU(int capacity) {
     this.capacity = capacity;
     this.map = new HashMap<>();
@@ -69,6 +57,20 @@ public class LRU<K, V> {
   private void moveToHead(Node<K, V> node) {
     remove(node);
     add(node);
+  }
+
+
+  // Node Class
+  private static class Node<K, V> {
+    K key;
+    V value;
+    Node<K, V> next;
+    Node<K, V> prev;
+
+    Node(K key, V value) {
+      this.key = key;
+      this.value = value;
+    }
   }
 
 }
